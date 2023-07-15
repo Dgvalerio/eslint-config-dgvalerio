@@ -118,6 +118,7 @@
         "selector": "ExportDefaultDeclaration",
         "message": "Prefer named exports"
       }
-    ]
+    ],
+    "no-use-before-define": "error"
   }
 }
