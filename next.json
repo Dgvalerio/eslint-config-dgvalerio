@@ -14,11 +14,10 @@
   "plugins": [
     "prettier",
     "eslint-plugin-import-helpers",
-    "@typescript-eslint/eslint-plugin",
+    "@typescript-eslint",
     "react-hooks"
   ],
   "rules": {
-    "@typescript-eslint/interface-name-prefix": "off",
     "prettier/prettier": [
       "error",
       {
@@ -52,7 +51,28 @@
       "error",
       "as-needed"
     ],
-    "new-cap": "off",
+    "import-helpers/order-imports": [
+      "warn",
+      {
+        "newlinesBetween": "always",
+        "groups": [
+          "/^react/",
+          "/^next/",
+          "/^@[^/].*/",
+          "/^@\\/.*/",
+          "module",
+          [
+            "parent",
+            "sibling",
+            "index"
+          ]
+        ],
+        "alphabetize": {
+          "order": "asc",
+          "ignoreCase": true
+        }
+      }
+    ],
     "padding-line-between-statements": [
       "error",
       {
@@ -97,32 +117,15 @@
         ]
       }
     ],
-    "import-helpers/order-imports": [
-      "warn",
+    "import/prefer-default-export": "off",
+    "no-restricted-syntax": [
+      "error",
       {
-        "newlinesBetween": "always",
-        "groups": [
-          "/^react/",
-          "/^next/",
-          "/@apollo/",
-          "/@mui/",
-          "/@emotion/",
-          "/@/",
-          "module",
-          [
-            "parent",
-            "sibling",
-            "index"
-          ]
-        ],
-        "alphabetize": {
-          "order": "asc",
-          "ignoreCase": true
-        }
+        "selector": "ExportDefaultDeclaration",
+        "message": "Prefer named exports"
       }
     ],
     "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
-    "import/prefer-default-export": "off"
+    "react-hooks/exhaustive-deps": "warn"
   }
 }
