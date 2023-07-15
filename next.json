@@ -15,7 +15,8 @@
     "prettier",
     "eslint-plugin-import-helpers",
     "@typescript-eslint",
-    "react-hooks"
+    "react-hooks",
+    "jsx-a11y"
   ],
   "rules": {
     "prettier/prettier": [
