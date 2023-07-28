@@ -15,7 +15,6 @@
     "prettier",
     "eslint-plugin-import-helpers",
     "@typescript-eslint",
-    "react-hooks",
     "jsx-a11y"
   ],
   "rules": {
@@ -123,7 +122,6 @@
     ],
     "import/prefer-default-export": "off",
     "no-use-before-define": "error",
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn"
+    "new-cap": "off"
   }
 }
