@@ -16,7 +16,13 @@ ESlint configuration recommended by Davi Gonçalves Valério.
     ```
     npm i -D eslint @dgvalerio/eslint-config
     ```
-2.  Create a `.eslintrc.json` file extending the config:
+2.  Create a `.eslintrc.json` file extending the config:\
+    **If you want to set up a ReactJS project:**
+    ```
+    {
+      "extends": "@dgvalerio/eslint-config/react"
+    }
+    ```
     **If you want to set up a Next.js project:**
     ```
     {

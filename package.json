@@ -1,6 +1,6 @@
 {
   "name": "@dgvalerio/eslint-config",
-  "version": "1.3.1",
+  "version": "1.4.0",
   "private": false,
   "description": "ESlint configuration recommended by Dgvalerio.",
   "main": "index.js",
@@ -10,7 +10,13 @@
   "keywords": [
     "eslint",
     "eslintplugin",
-    "eslint-plugin"
+    "eslint-plugin",
+    "eslint-config",
+    "eslint-rules",
+    "next",
+    "react",
+    "nest",
+    "code-lint"
   ],
   "repository": {
     "type": "git",
