@@ -6,12 +6,14 @@
   "extends": [
     "prettier",
     "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "plugin:jsdoc/recommended"
   ],
   "plugins": [
     "prettier",
     "eslint-plugin-import-helpers",
-    "@typescript-eslint"
+    "@typescript-eslint",
+    "jsdoc"
   ],
   "rules": {
     "prettier/prettier": [
@@ -45,7 +47,6 @@
     ],
     "@typescript-eslint/explicit-function-return-type": "warn",
     "@typescript-eslint/explicit-module-boundary-types": "warn",
-    "require-jsdoc": "off",
     "arrow-body-style": [
       "error",
       "as-needed"
@@ -122,6 +123,29 @@
         "message": "Prefer named exports"
       }
     ],
-    "no-use-before-define": "error"
+    "no-use-before-define": "error",
+    "jsdoc/check-indentation": "warn",
+    "jsdoc/check-line-alignment": "warn",
+    "jsdoc/informative-docs": "warn",
+    "jsdoc/no-bad-blocks": "warn",
+    "jsdoc/no-blank-block-descriptions": "warn",
+    "jsdoc/no-blank-blocks": "warn",
+    "jsdoc/require-asterisk-prefix": "warn",
+    "jsdoc/require-description": "warn",
+    "jsdoc/require-hyphen-before-param-description": "warn",
+    "jsdoc/require-jsdoc": [
+      "warn",
+      {
+        "checkConstructors": false,
+        "require": {
+          "ArrowFunctionExpression": true,
+          "ClassDeclaration": true,
+          "ClassExpression": true,
+          "FunctionDeclaration": true,
+          "FunctionExpression": true,
+          "MethodDefinition": true
+        }
+      }
+    ]
   }
 }
