@@ -5,14 +5,14 @@ ESlint configuration recommended by Davi Gonçalves Valério.
 ## What's included?
 
 |                       | React | Next | Nest |
-|-----------------------|-------|------|------|
-| Google config base    | ✅     | ✅    | ✅    |
-| Import Helpers plugin |       | ✅    | ✅    |
-| React plugin          | ✅     | ✅    |      |
-| React Hooks plugin    | ✅     |      |      |
-| JSX a11y plugin       | ✅     | ✅    |      |
-| Prettier              | ✅     | ✅    | ✅    |
-| JSDoc Plugin          |       |      | ✅    |
+|-----------------------|:-----:|:----:|:----:|
+| Google config base    |   ✅   |  ✅   |  ✅   |
+| Import Helpers plugin |       |  ✅   |  ✅   |
+| React plugin          |   ✅   |  ✅   |      |
+| React Hooks plugin    |   ✅   |      |      |
+| JSX a11y plugin       |   ✅   |  ✅   |      |
+| Prettier              |   ✅   |  ✅   |  ✅   |
+| JSDoc Plugin          |       |      |  ✅   |
 
 ## Setup
 
