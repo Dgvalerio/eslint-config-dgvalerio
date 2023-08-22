@@ -17,7 +17,6 @@
     "jsx-a11y",
     "react-hooks"
   ],
-  "ignorePatterns": ["next-env.d.ts"],
   "rules": {
     "prettier/prettier": [
       "error",
