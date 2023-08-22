@@ -1,66 +1,24 @@
 {
   "env": {
     "browser": true,
-    "es2021": true,
-    "node": true
+    "es2021": true
   },
   "extends": [
     "google",
-    "prettier",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended"
+    "./common.json"
   ],
   "plugins": [
-    "prettier",
-    "eslint-plugin-import-helpers",
-    "@typescript-eslint",
     "jsx-a11y",
     "react-hooks"
   ],
   "rules": {
-    "prettier/prettier": [
-      "error",
-      {
-        "tabWidth": 2,
-        "arrowParens": "always",
-        "endOfLine": "lf",
-        "singleQuote": true,
-        "trailingComma": "es5"
-      }
-    ],
-    "@typescript-eslint/no-namespace": "off",
-    "@typescript-eslint/no-explicit-any": "warn",
-    "no-console": "warn",
-    "@typescript-eslint/consistent-type-definitions": [
-      "error",
-      "interface"
-    ],
-    "lines-between-class-members": [
-      "error",
-      "always"
-    ],
-    "no-restricted-imports": [
-      "error",
-      {
-        "patterns": [
-          ".*"
-        ]
-      }
-    ],
-    "@typescript-eslint/explicit-function-return-type": "warn",
-    "@typescript-eslint/explicit-module-boundary-types": "warn",
     "require-jsdoc": "off",
-    "arrow-body-style": [
-      "error",
-      "as-needed"
-    ],
     "import-helpers/order-imports": [
       "warn",
       {
         "newlinesBetween": "always",
         "groups": [
           "/^react/",
-          "/^next/",
           "/^@[^/].*/",
           "/^@\\/.*/",
           "module",
@@ -76,56 +34,9 @@
         }
       }
     ],
-    "padding-line-between-statements": [
-      "error",
-      {
-        "blankLine": "always",
-        "prev": "*",
-        "next": "return"
-      },
-      {
-        "blankLine": "always",
-        "prev": "*",
-        "next": "throw"
-      },
-      {
-        "blankLine": "always",
-        "prev": [
-          "const",
-          "let",
-          "var"
-        ],
-        "next": "*"
-      },
-      {
-        "blankLine": "always",
-        "prev": "*",
-        "next": [
-          "const",
-          "let",
-          "var"
-        ]
-      },
-      {
-        "blankLine": "any",
-        "prev": [
-          "const",
-          "let",
-          "var"
-        ],
-        "next": [
-          "const",
-          "let",
-          "var"
-        ]
-      }
-    ],
     "import/prefer-default-export": "off",
-    "no-use-before-define": "error",
     "new-cap": "off",
     "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
-    "no-nested-ternary": "error",
-    "no-unneeded-ternary": "error"
+    "react-hooks/exhaustive-deps": "warn"
   }
 }

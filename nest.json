@@ -1,56 +1,15 @@
 {
   "env": {
-    "node": true,
     "jest": true
   },
   "extends": [
-    "prettier",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended",
-    "plugin:jsdoc/recommended"
+    "plugin:jsdoc/recommended",
+    "./common.json"
   ],
   "plugins": [
-    "prettier",
-    "eslint-plugin-import-helpers",
-    "@typescript-eslint",
     "jsdoc"
   ],
   "rules": {
-    "prettier/prettier": [
-      "error",
-      {
-        "tabWidth": 2,
-        "arrowParens": "always",
-        "endOfLine": "lf",
-        "singleQuote": true,
-        "trailingComma": "es5"
-      }
-    ],
-    "@typescript-eslint/no-namespace": "off",
-    "@typescript-eslint/no-explicit-any": "warn",
-    "no-console": "warn",
-    "@typescript-eslint/consistent-type-definitions": [
-      "warn",
-      "interface"
-    ],
-    "lines-between-class-members": [
-      "error",
-      "always"
-    ],
-    "no-restricted-imports": [
-      "error",
-      {
-        "patterns": [
-          ".*"
-        ]
-      }
-    ],
-    "@typescript-eslint/explicit-function-return-type": "warn",
-    "@typescript-eslint/explicit-module-boundary-types": "warn",
-    "arrow-body-style": [
-      "error",
-      "as-needed"
-    ],
     "import-helpers/order-imports": [
       "warn",
       {
@@ -71,50 +30,6 @@
         }
       }
     ],
-    "padding-line-between-statements": [
-      "error",
-      {
-        "blankLine": "always",
-        "prev": "*",
-        "next": "return"
-      },
-      {
-        "blankLine": "always",
-        "prev": "*",
-        "next": "throw"
-      },
-      {
-        "blankLine": "always",
-        "prev": [
-          "const",
-          "let",
-          "var"
-        ],
-        "next": "*"
-      },
-      {
-        "blankLine": "always",
-        "prev": "*",
-        "next": [
-          "const",
-          "let",
-          "var"
-        ]
-      },
-      {
-        "blankLine": "any",
-        "prev": [
-          "const",
-          "let",
-          "var"
-        ],
-        "next": [
-          "const",
-          "let",
-          "var"
-        ]
-      }
-    ],
     "import/prefer-default-export": "off",
     "no-restricted-syntax": [
       "error",
@@ -123,7 +38,6 @@
         "message": "Prefer named exports"
       }
     ],
-    "no-use-before-define": "error",
     "jsdoc/check-indentation": "warn",
     "jsdoc/check-line-alignment": "warn",
     "jsdoc/informative-docs": "warn",
@@ -146,8 +60,6 @@
           "MethodDefinition": true
         }
       }
-    ],
-    "no-nested-ternary": "error",
-    "no-unneeded-ternary": "error"
+    ]
   }
 }
