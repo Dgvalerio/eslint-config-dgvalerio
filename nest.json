@@ -146,6 +146,8 @@
           "MethodDefinition": true
         }
       }
-    ]
+    ],
+    "no-nested-ternary": "error",
+    "no-unneeded-ternary": "error"
   }
 }

@@ -125,6 +125,8 @@
     "no-use-before-define": "error",
     "new-cap": "off",
     "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn"
+    "react-hooks/exhaustive-deps": "warn",
+    "no-nested-ternary": "error",
+    "no-unneeded-ternary": "error"
   }
 }
