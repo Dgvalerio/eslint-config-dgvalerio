@@ -17,6 +17,8 @@
   ],
   "rules": {
     "require-jsdoc": "off",
+    "valid-jsdoc": "off",
+    "jsdoc/require-jsdoc": "off",
     "import-helpers/order-imports": [
       "warn",
       {
