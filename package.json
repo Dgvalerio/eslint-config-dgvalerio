@@ -5,7 +5,8 @@
   "description": "ESlint configuration recommended by Dgvalerio.",
   "main": "index.js",
   "scripts": {
-    "publish": "npm publish --access public"
+    "publish": "npm publish --access public",
+    "release": "release-it"
   },
   "keywords": [
     "eslint",
@@ -43,5 +44,8 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "prettier": "^3.0.0"
+  },
+  "devDependencies": {
+    "release-it": "^17.0.1"
   }
 }
