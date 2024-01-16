@@ -34,6 +34,13 @@
     "import/prefer-default-export": "off",
     "jsdoc/require-jsdoc": "off",
     "new-cap": "off",
+    "no-restricted-syntax": [
+      "error",
+      {
+        "selector": "ExportDefaultDeclaration",
+        "message": "Prefer named exports"
+      }
+    ],
     "require-jsdoc": "off",
     "valid-jsdoc": "off"
   }
