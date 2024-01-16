@@ -14,27 +14,24 @@
     "@typescript-eslint"
   ],
   "rules": {
-    "prettier/prettier": [
-      "error",
-      {
-        "tabWidth": 2,
-        "arrowParens": "always",
-        "endOfLine": "lf",
-        "singleQuote": true,
-        "trailingComma": "es5"
-      }
-    ],
-    "@typescript-eslint/no-namespace": "off",
-    "@typescript-eslint/no-explicit-any": "warn",
-    "no-console": "warn",
     "@typescript-eslint/consistent-type-definitions": [
       "warn",
       "interface"
+    ],
+    "@typescript-eslint/explicit-function-return-type": "warn",
+    "@typescript-eslint/explicit-module-boundary-types": "warn",
+    "@typescript-eslint/no-explicit-any": "warn",
+    "@typescript-eslint/no-namespace": "off",
+    "arrow-body-style": [
+      "error",
+      "as-needed"
     ],
     "lines-between-class-members": [
       "error",
       "always"
     ],
+    "no-console": "warn",
+    "no-nested-ternary": "error",
     "no-restricted-imports": [
       "error",
       {
@@ -43,12 +40,15 @@
         ]
       }
     ],
-    "@typescript-eslint/explicit-function-return-type": "warn",
-    "@typescript-eslint/explicit-module-boundary-types": "warn",
-    "arrow-body-style": [
+    "no-restricted-syntax": [
       "error",
-      "as-needed"
+      {
+        "selector": "ExportDefaultDeclaration",
+        "message": "Prefer named exports"
+      }
     ],
+    "no-unneeded-ternary": "error",
+    "no-use-before-define": "error",
     "padding-line-between-statements": [
       "error",
       {
@@ -93,8 +93,15 @@
         ]
       }
     ],
-    "no-nested-ternary": "error",
-    "no-unneeded-ternary": "error",
-    "no-use-before-define": "error"
+    "prettier/prettier": [
+      "error",
+      {
+        "tabWidth": 2,
+        "arrowParens": "always",
+        "endOfLine": "lf",
+        "singleQuote": true,
+        "trailingComma": "es5"
+      }
+    ]
   }
 }

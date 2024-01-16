@@ -31,13 +31,6 @@
       }
     ],
     "import/prefer-default-export": "off",
-    "no-restricted-syntax": [
-      "error",
-      {
-        "selector": "ExportDefaultDeclaration",
-        "message": "Prefer named exports"
-      }
-    ],
     "jsdoc/check-indentation": "warn",
     "jsdoc/check-line-alignment": "warn",
     "jsdoc/informative-docs": "warn",
@@ -59,6 +52,13 @@
           "FunctionExpression": true,
           "MethodDefinition": true
         }
+      }
+    ],
+    "no-restricted-syntax": [
+      "error",
+      {
+        "selector": "ExportDefaultDeclaration",
+        "message": "Prefer named exports"
       }
     ]
   }

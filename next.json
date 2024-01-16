@@ -16,9 +16,6 @@
     "next.config.js"
   ],
   "rules": {
-    "require-jsdoc": "off",
-    "valid-jsdoc": "off",
-    "jsdoc/require-jsdoc": "off",
     "import-helpers/order-imports": [
       "warn",
       {
@@ -42,10 +39,27 @@
       }
     ],
     "import/prefer-default-export": "off",
+    "jsdoc/require-jsdoc": "off",
     "new-cap": "off",
-    "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
+    "react-hooks/rules-of-hooks": "error",
+    "react/button-has-type": "error",
+    "react/jsx-curly-brace-presence": "error",
+    "react/jsx-no-useless-fragment": "error",
     "react/no-unescaped-entities": "error",
-    "react/jsx-curly-brace-presence": "error"
-  }
+    "react/self-closing-comp": "error",
+    "require-jsdoc": "off",
+    "valid-jsdoc": "off"
+  },
+  "overrides": [
+    {
+      "files": [
+        "layout.tsx",
+        "page.tsx"
+      ],
+      "rules": {
+        "no-restricted-syntax": "off"
+      }
+    }
+  ]
 }
