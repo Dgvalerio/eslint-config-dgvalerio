@@ -1,15 +1,7 @@
 {
-  "env": {
-    "browser": true,
-    "es2021": true
-  },
   "extends": [
-    "google",
     "next/core-web-vitals",
-    "./common.json"
-  ],
-  "plugins": [
-    "jsx-a11y"
+    "./web.json"
   ],
   "ignorePatterns": [
     "next-env.d.ts",
@@ -38,18 +30,13 @@
         }
       }
     ],
-    "import/prefer-default-export": "off",
-    "jsdoc/require-jsdoc": "off",
-    "new-cap": "off",
     "react-hooks/exhaustive-deps": "warn",
     "react-hooks/rules-of-hooks": "error",
     "react/button-has-type": "error",
     "react/jsx-curly-brace-presence": "error",
     "react/jsx-no-useless-fragment": "error",
     "react/no-unescaped-entities": "error",
-    "react/self-closing-comp": "error",
-    "require-jsdoc": "off",
-    "valid-jsdoc": "off"
+    "react/self-closing-comp": "error"
   },
   "overrides": [
     {

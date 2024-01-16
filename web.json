@@ -1,9 +1,14 @@
 {
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
   "extends": [
-    "./web.json"
+    "google",
+    "./common.json"
   ],
   "plugins": [
-    "react-hooks"
+    "jsx-a11y"
   ],
   "rules": {
     "import-helpers/order-imports": [
@@ -11,7 +16,6 @@
       {
         "newlinesBetween": "always",
         "groups": [
-          "/^react/",
           "/^@[^/].*/",
           "/^@\\/.*/",
           "module",
@@ -27,11 +31,10 @@
         }
       }
     ],
-    "react-hooks/exhaustive-deps": "warn",
-    "react-hooks/rules-of-hooks": "error",
-    "react/button-has-type": "error",
-    "react/jsx-curly-brace-presence": "error",
-    "react/jsx-no-useless-fragment": "error",
-    "react/self-closing-comp": "error"
+    "import/prefer-default-export": "off",
+    "jsdoc/require-jsdoc": "off",
+    "new-cap": "off",
+    "require-jsdoc": "off",
+    "valid-jsdoc": "off"
   }
 }
