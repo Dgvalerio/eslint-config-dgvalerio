@@ -42,7 +42,10 @@
     {
       "files": [
         "layout.tsx",
-        "page.tsx"
+        "page.tsx",
+        "loading.tsx",
+        "error.tsx",
+        "tailwind.config.ts"
       ],
       "rules": {
         "no-restricted-syntax": "off"
