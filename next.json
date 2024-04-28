@@ -45,7 +45,9 @@
         "page.tsx",
         "loading.tsx",
         "error.tsx",
-        "tailwind.config.ts"
+        "opengraph-image.tsx",
+        "tailwind.config.ts",
+        "cypress.config.ts"
       ],
       "rules": {
         "no-restricted-syntax": "off"
