@@ -3,7 +3,8 @@
     "./web.json"
   ],
   "plugins": [
-    "react-hooks"
+    "react-hooks",
+    "react"
   ],
   "rules": {
     "import-helpers/order-imports": [
