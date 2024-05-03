@@ -1,6 +1,6 @@
 {
   "name": "@dgvalerio/eslint-config",
-  "version": "1.5.6",
+  "version": "1.5.8",
   "private": false,
   "description": "ESlint configuration recommended by Dgvalerio.",
   "main": "index.js",
