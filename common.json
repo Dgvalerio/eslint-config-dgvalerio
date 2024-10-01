@@ -11,7 +11,8 @@
   "plugins": [
     "prettier",
     "eslint-plugin-import-helpers",
-    "@typescript-eslint"
+    "@typescript-eslint",
+    "unused-imports"
   ],
   "rules": {
     "@typescript-eslint/consistent-type-definitions": [
@@ -101,6 +102,17 @@
         "endOfLine": "lf",
         "singleQuote": true,
         "trailingComma": "es5"
+      }
+    ],
+    "no-unused-vars": "off",
+    "unused-imports/no-unused-imports": "error",
+    "unused-imports/no-unused-vars": [
+      "warn",
+      {
+        "vars": "all",
+        "varsIgnorePattern": "^_",
+        "args": "after-used",
+        "argsIgnorePattern": "^_"
       }
     ]
   }
