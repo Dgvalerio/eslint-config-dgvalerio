@@ -47,10 +47,21 @@
         "error.tsx",
         "opengraph-image.tsx",
         "tailwind.config.ts",
-        "cypress.config.ts"
+        "cypress.config.ts",
+        "postcss.config.mjs",
+        "next.config.mjs"
       ],
       "rules": {
         "no-restricted-syntax": "off"
+      }
+    },
+    {
+      "files": [
+        "cypress/**/*.**"
+      ],
+      "rules": {
+        "spaced-comment": "off",
+        "no-restricted-imports": "off"
       }
     }
   ]
