@@ -45,7 +45,8 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-unicorn": "^55.0.0",
     "eslint-plugin-unused-imports": "^4.1.4",
-    "prettier": "^3.0.0"
+    "prettier": "^3.4.2",
+    "prettier-plugin-tailwindcss": "^0.6.11"
   },
   "devDependencies": {
     "release-it": "^17.0.1"
