@@ -46,6 +46,7 @@
         "page.tsx",
         "loading.tsx",
         "error.tsx",
+        "not-found.tsx",
         "opengraph-image.tsx",
         "tailwind.config.ts",
         "cypress.config.ts",
