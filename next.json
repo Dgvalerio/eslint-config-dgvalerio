@@ -51,7 +51,8 @@
         "tailwind.config.ts",
         "cypress.config.ts",
         "postcss.config.mjs",
-        "next.config.mjs"
+        "next.config.mjs",
+        "next.config.ts"
       ],
       "rules": {
         "no-restricted-syntax": "off"
