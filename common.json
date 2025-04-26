@@ -22,6 +22,15 @@
     ],
     "@typescript-eslint/explicit-function-return-type": "warn",
     "@typescript-eslint/explicit-module-boundary-types": "warn",
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "enum",
+        "format": [
+          "PascalCase"
+        ]
+      }
+    ],
     "@typescript-eslint/no-explicit-any": "warn",
     "@typescript-eslint/no-namespace": "off",
     "arrow-body-style": [
@@ -50,6 +59,7 @@
       }
     ],
     "no-unneeded-ternary": "error",
+    "no-unused-vars": "off",
     "no-use-before-define": "error",
     "padding-line-between-statements": [
       "error",
@@ -105,15 +115,21 @@
         "trailingComma": "es5"
       }
     ],
-    "no-unused-vars": "off",
-    "unused-imports/no-unused-imports": "error",
-    "unused-imports/no-unused-vars": [
+    "unicorn/expiring-todo-comments": [
       "warn",
       {
-        "vars": "all",
-        "varsIgnorePattern": "^_",
-        "args": "after-used",
-        "argsIgnorePattern": "^_"
+        "terms": [
+          "TODO",
+          "FIXME"
+        ],
+        "ignoreDatesOnPullRequests": true,
+        "allowWarningComments": false
+      }
+    ],
+    "unicorn/filename-case": [
+      "error",
+      {
+        "case": "kebabCase"
       }
     ],
     "unicorn/no-abusive-eslint-disable": "warn",
@@ -123,18 +139,14 @@
     "unicorn/prefer-logical-operator-over-ternary": "warn",
     "unicorn/prefer-switch": "warn",
     "unicorn/prefer-ternary": "warn",
-    "unicorn/filename-case": [
-      "error",
-      {
-        "case": "kebabCase"
-      }
-    ],
-    "unicorn/expiring-todo-comments": [
+    "unused-imports/no-unused-imports": "error",
+    "unused-imports/no-unused-vars": [
       "warn",
       {
-        "terms": ["TODO", "FIXME"],
-        "ignoreDatesOnPullRequests": true,
-        "allowWarningComments": false
+        "vars": "all",
+        "varsIgnorePattern": "^_",
+        "args": "after-used",
+        "argsIgnorePattern": "^_"
       }
     ]
   }
