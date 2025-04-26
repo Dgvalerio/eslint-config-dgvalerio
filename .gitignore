@@ -2,6 +2,7 @@
 
 # For tests
 /src
+.eslintrc
 
 # compiled output
 /node_modules
