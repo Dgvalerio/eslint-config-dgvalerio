@@ -42,6 +42,7 @@
   "overrides": [
     {
       "files": [
+        "next.config.ts",
         "layout.tsx",
         "page.tsx",
         "loading.tsx",
@@ -60,7 +61,8 @@
     },
     {
       "files": [
-        "cypress/**/*.**"
+        "cypress/**/*.**",
+        "tailwind.config.ts"
       ],
       "rules": {
         "spaced-comment": "off",
