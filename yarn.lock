@@ -19,7 +19,6 @@ __metadata:
     "@eslint/js": "npm:^9.36.0"
     "@types/eslint-plugin-jsx-a11y": "npm:^6"
     eslint: "npm:^9.36.0"
-    eslint-config-google: "npm:^0.14.0"
     eslint-config-prettier: "npm:^10.1.8"
     eslint-plugin-import-helpers: "npm:^2.0.1"
     eslint-plugin-jsx-a11y: "npm:^6.10.2"
@@ -1664,15 +1663,6 @@ __metadata:
     escodegen: bin/escodegen.js
     esgenerate: bin/esgenerate.js
   checksum: 10c0/e1450a1f75f67d35c061bf0d60888b15f62ab63aef9df1901cffc81cffbbb9e8b3de237c5502cf8613a017c1df3a3003881307c78835a1ab54d8c8d2206e01d3
-  languageName: node
-  linkType: hard
-
-"eslint-config-google@npm:^0.14.0":
-  version: 0.14.0
-  resolution: "eslint-config-google@npm:0.14.0"
-  peerDependencies:
-    eslint: ">=5.16.0"
-  checksum: 10c0/b714c8c45ab1743002f69aa419ad5b39bab00e89484f4e30c33f79f9de031349613f73c9dd4c3a10f40b89a3a43618d4be29df15ab3b96e761f2b705e7293345
   languageName: node
   linkType: hard
 

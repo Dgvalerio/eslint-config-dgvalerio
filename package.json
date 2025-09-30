@@ -30,9 +30,6 @@
     "url": "https://github.com/Dgvalerio/eslint-config-dgvalerio/issues"
   },
   "homepage": "https://github.com/Dgvalerio/eslint-config-dgvalerio#readme",
-  "dependencies": {
-    "eslint-config-google": "^0.14.0"
-  },
   "devDependencies": {
     "@eslint/js": "^9.36.0",
     "@types/eslint-plugin-jsx-a11y": "^6",
