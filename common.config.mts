@@ -97,16 +97,6 @@ export const commonConfigs: ConfigWithExtendsArray = [
       'prefer-spread': 'error',
       'quote-props': ['error', 'consistent'],
       quotes: ['error', 'single', { allowTemplateLiterals: true }],
-      'require-jsdoc': [
-        'error',
-        {
-          require: {
-            FunctionDeclaration: true,
-            MethodDefinition: true,
-            ClassDeclaration: true,
-          },
-        },
-      ],
       'rest-spread-spacing': 'error',
       semi: 'error',
       'semi-spacing': 'error',
@@ -121,15 +111,6 @@ export const commonConfigs: ConfigWithExtendsArray = [
       ],
       'spaced-comment': ['error', 'always'],
       'switch-colon-spacing': 'error',
-      'valid-jsdoc': [
-        'error',
-        {
-          requireParamDescription: false,
-          requireReturnDescription: false,
-          requireReturn: false,
-          prefer: { returns: 'return' },
-        },
-      ],
       'yield-star-spacing': ['error', 'after'],
     },
   },
