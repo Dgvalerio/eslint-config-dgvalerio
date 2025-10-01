@@ -12,10 +12,7 @@ export const nextConfigs: ConfigWithExtendsArray = [
       'import-helpers/order-imports': [
         'warn',
         {
-          alphabetize: {
-            order: 'asc',
-            ignoreCase: true,
-          },
+          alphabetize: { order: 'asc', ignoreCase: true },
           groups: [
             '/^react/',
             '/^next/',

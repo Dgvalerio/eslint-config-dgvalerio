@@ -7,6 +7,7 @@ import commonConfigs from './common.config.mjs';
 import { webConfigs } from './web.config.mjs';
 
 export const reactConfigs: ConfigWithExtendsArray = [
+  react.configs.flat.recommended,
   reactHooks.configs['recommended-latest'],
   {
     files: ['**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}'],
@@ -15,10 +16,7 @@ export const reactConfigs: ConfigWithExtendsArray = [
       'import-helpers/order-imports': [
         'warn',
         {
-          alphabetize: {
-            order: 'asc',
-            ignoreCase: true,
-          },
+          alphabetize: { order: 'asc', ignoreCase: true },
           groups: [
             '/^react/',
             '/^@[^/].*/',
@@ -36,6 +34,7 @@ export const reactConfigs: ConfigWithExtendsArray = [
       'react/jsx-fragments': ['error', 'syntax'],
       'react/jsx-no-useless-fragment': 'error',
       'react/no-unescaped-entities': 'error',
+      'react/no-unknown-property': 'error',
       'react/self-closing-comp': 'error',
     },
   },

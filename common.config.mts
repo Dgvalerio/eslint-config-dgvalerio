@@ -1,179 +1,87 @@
 import { ConfigWithExtendsArray } from '@eslint/config-helpers';
 import js from '@eslint/js';
+import stylistic from '@stylistic/eslint-plugin';
 
 import importHelpers from 'eslint-plugin-import-helpers';
 import prettierRecommended from 'eslint-plugin-prettier/recommended';
-import react from 'eslint-plugin-react';
 import unicorn from 'eslint-plugin-unicorn';
 import unusedImports from 'eslint-plugin-unused-imports';
 import globals from 'globals';
 import TSEslint from 'typescript-eslint';
 
-export const commonConfigs: ConfigWithExtendsArray = [
-  prettierRecommended,
-  ...TSEslint.configs.recommended,
-  react.configs.flat.recommended,
-  js.configs.recommended,
+const languageOptions = {
+  globals: {
+    ...globals.browser,
+    ...globals.node,
+    ...globals.builtin,
+  },
+};
+
+const files = ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'];
+
+const rulesFromStylistic: ConfigWithExtendsArray = [
   {
+    files,
+    languageOptions,
+    plugins: { '@stylistic': stylistic },
     rules: {
-      'array-bracket-newline': 'off',
-      'array-bracket-spacing': ['error', 'never'],
-      'array-element-newline': 'off',
-      'arrow-parens': ['error', 'always'],
-      'block-spacing': ['error', 'never'],
-      'brace-style': 'error',
-      camelcase: ['error', { properties: 'never' }],
-      'comma-dangle': ['error', 'always-multiline'],
-      'comma-spacing': 'error',
-      'comma-style': 'error',
-      'computed-property-spacing': 'error',
-      'constructor-super': 'error',
-      curly: ['error', 'multi-line'],
-      'eol-last': 'error',
-      'func-call-spacing': 'error',
-      'generator-star-spacing': ['error', 'after'],
-      'guard-for-in': 'error',
-      indent: [
+      '@stylistic/array-bracket-newline': ['error', { multiline: true }],
+      '@stylistic/array-bracket-spacing': ['error', 'never'],
+      '@stylistic/array-element-newline': 'off',
+      '@stylistic/arrow-parens': ['error', 'always'],
+      '@stylistic/arrow-spacing': 'error',
+      '@stylistic/block-spacing': 'error',
+      '@stylistic/brace-style': 'error',
+      '@stylistic/comma-dangle': ['error', 'always-multiline'],
+      '@stylistic/comma-spacing': 'error',
+      '@stylistic/comma-style': 'error',
+      '@stylistic/computed-property-spacing': 'error',
+      '@stylistic/curly-newline': ['error', { consistent: true }],
+      '@stylistic/eol-last': 'error',
+      '@stylistic/function-call-argument-newline': ['error', 'consistent'],
+      '@stylistic/function-call-spacing': ['error', 'never'],
+      '@stylistic/generator-star-spacing': [
+        'error',
+        { before: false, after: true },
+      ],
+      '@stylistic/indent': [
         'error',
         2,
         {
-          CallExpression: { arguments: 2 },
-          FunctionDeclaration: { body: 1, parameters: 2 },
-          FunctionExpression: { body: 1, parameters: 2 },
+          CallExpression: {
+            arguments: 2,
+          },
+          FunctionDeclaration: {
+            body: 1,
+            parameters: 2,
+          },
+          FunctionExpression: {
+            body: 1,
+            parameters: 2,
+          },
           MemberExpression: 2,
           ObjectExpression: 1,
           SwitchCase: 1,
           ignoredNodes: ['ConditionalExpression'],
         },
       ],
-      'key-spacing': 'error',
-      'keyword-spacing': 'error',
-      'linebreak-style': 'error',
-      'max-len': [
-        'error',
-        {
-          code: 80,
-          tabWidth: 2,
-          ignoreUrls: true,
-          ignorePattern: 'goog.(module|require)',
-        },
-      ],
-      'new-cap': 'error',
-      'no-array-constructor': 'error',
-      'no-caller': 'error',
-      'no-cond-assign': 'off',
-      'no-extend-native': 'error',
-      'no-extra-bind': 'error',
-      'no-invalid-this': 'error',
-      'no-irregular-whitespace': 'error',
-      'no-mixed-spaces-and-tabs': 'error',
-      'no-multi-spaces': 'error',
-      'no-multi-str': 'error',
-      'no-multiple-empty-lines': ['error', { max: 2 }],
-      'no-new-object': 'error',
-      'no-new-symbol': 'error',
-      'no-new-wrappers': 'error',
-      'no-tabs': 'error',
-      'no-this-before-super': 'error',
-      'no-throw-literal': 'error',
-      'no-trailing-spaces': 'error',
-      'no-unexpected-multiline': 'error',
-      'no-var': 'error',
-      'no-with': 'error',
-      'object-curly-spacing': 'error',
-      'one-var': [
-        'error',
-        {
-          var: 'never',
-          let: 'never',
-          const: 'never',
-        },
-      ],
-      'operator-linebreak': ['error', 'after'],
-      'padded-blocks': ['error', 'never'],
-      'prefer-const': ['error', { destructuring: 'all' }],
-      'prefer-promise-reject-errors': 'error',
-      'prefer-rest-params': 'error',
-      'prefer-spread': 'error',
-      'quote-props': ['error', 'consistent'],
-      quotes: ['error', 'single', { allowTemplateLiterals: true }],
-      'rest-spread-spacing': 'error',
-      semi: 'error',
-      'semi-spacing': 'error',
-      'space-before-blocks': 'error',
-      'space-before-function-paren': [
-        'error',
-        {
-          asyncArrow: 'always',
-          anonymous: 'never',
-          named: 'never',
-        },
-      ],
-      'spaced-comment': ['error', 'always'],
-      'switch-colon-spacing': 'error',
-      'yield-star-spacing': ['error', 'after'],
-    },
-  },
-  {
-    files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
-    languageOptions: {
-      globals: {
-        ...globals.browser,
-        ...globals.node,
-        ...globals.builtin,
-      },
-    },
-    plugins: {
-      'import-helpers': importHelpers,
-      js,
-      unicorn: unicorn,
-      'unused-imports': unusedImports,
-    },
-    rules: {
-      '@typescript-eslint/consistent-type-definitions': ['warn', 'interface'],
-      '@typescript-eslint/explicit-function-return-type': 'warn',
-      '@typescript-eslint/explicit-module-boundary-types': 'warn',
-      '@typescript-eslint/naming-convention': [
-        'error',
-        {
-          selector: 'enum',
-          format: ['PascalCase'],
-        },
-      ],
-      '@typescript-eslint/no-explicit-any': 'warn',
-      '@typescript-eslint/no-namespace': 'off',
-      'arrow-body-style': ['error', 'as-needed'],
-      'import-helpers/order-imports': [
-        'warn',
-        {
-          newlinesBetween: 'always',
-          groups: [
-            '/^@[^/].*/',
-            '/^@\\/.*/',
-            'module',
-            ['parent', 'sibling', 'index'],
-          ],
-          alphabetize: {
-            order: 'asc',
-            ignoreCase: true,
-          },
-        },
-      ],
-      'lines-between-class-members': ['error', 'always'],
-      'no-console': 'warn',
-      'no-nested-ternary': 'error',
-      'no-restricted-imports': ['error', { patterns: ['.*'] }],
-      'no-restricted-syntax': [
-        'error',
-        {
-          selector: 'ExportDefaultDeclaration',
-          message: 'Prefer named exports',
-        },
-      ],
-      'no-unneeded-ternary': 'error',
-      'no-unused-vars': 'off',
-      'no-use-before-define': 'error',
-      'padding-line-between-statements': [
+      '@stylistic/key-spacing': 'error',
+      '@stylistic/keyword-spacing': 'error',
+      '@stylistic/linebreak-style': ['error', 'unix'],
+      '@stylistic/lines-between-class-members': ['error', 'always'],
+      '@stylistic/no-extra-parens': 'error',
+      '@stylistic/no-extra-semi': 'error',
+      '@stylistic/no-floating-decimal': 'error',
+      '@stylistic/no-mixed-spaces-and-tabs': 'error',
+      '@stylistic/no-multi-spaces': 'error',
+      '@stylistic/no-multiple-empty-lines': ['error', { max: 1 }],
+      '@stylistic/no-tabs': 'error',
+      '@stylistic/no-trailing-spaces': 'error',
+      '@stylistic/object-curly-newline': ['error', { consistent: true }],
+      '@stylistic/object-curly-spacing': ['error', 'always'],
+      '@stylistic/operator-linebreak': ['error', 'before'],
+      '@stylistic/padded-blocks': ['error', 'never'],
+      '@stylistic/padding-line-between-statements': [
         'error',
         {
           blankLine: 'always',
@@ -201,16 +109,95 @@ export const commonConfigs: ConfigWithExtendsArray = [
           next: ['const', 'let', 'var'],
         },
       ],
-      'prettier/prettier': [
+      '@stylistic/quote-props': ['error', 'as-needed'],
+      '@stylistic/quotes': ['error', 'single', { allowTemplateLiterals: true }],
+      '@stylistic/rest-spread-spacing': 'error',
+      '@stylistic/semi': 'error',
+      '@stylistic/semi-spacing': 'error',
+      '@stylistic/semi-style': ['error', 'last'],
+      '@stylistic/space-before-blocks': 'error',
+      '@stylistic/space-before-function-paren': [
         'error',
         {
-          tabWidth: 2,
-          arrowParens: 'always',
-          endOfLine: 'lf',
-          singleQuote: true,
-          trailingComma: 'es5',
+          asyncArrow: 'always',
+          anonymous: 'never',
+          named: 'never',
         },
       ],
+      '@stylistic/spaced-comment': ['error', 'always'],
+      '@stylistic/switch-colon-spacing': 'error',
+      '@stylistic/template-curly-spacing': 'error',
+      '@stylistic/type-annotation-spacing': 'error',
+      '@stylistic/type-generic-spacing': ['error'],
+      '@stylistic/type-named-tuple-spacing': ['error'],
+      '@stylistic/wrap-regex': 'error',
+      '@stylistic/yield-star-spacing': ['error', 'after'],
+    },
+  },
+];
+
+const rulesBase: ConfigWithExtendsArray = [
+  {
+    files,
+    languageOptions,
+    rules: {
+      'arrow-body-style': ['error', 'as-needed'],
+      camelcase: ['error', { properties: 'never' }],
+      'constructor-super': 'error',
+      'guard-for-in': 'error',
+      'new-cap': 'error',
+      'no-array-constructor': 'error',
+      'no-caller': 'error',
+      'no-cond-assign': 'off',
+      'no-console': 'warn',
+      'no-extend-native': 'error',
+      'no-extra-bind': 'error',
+      'no-invalid-this': 'error',
+      'no-irregular-whitespace': 'error',
+      'no-nested-ternary': 'error',
+      'no-object-constructor': 'error',
+      'no-new-native-nonconstructor': 'error',
+      'no-new-wrappers': 'error',
+      'no-restricted-imports': ['error', { patterns: ['.*'] }],
+      'no-restricted-syntax': [
+        'error',
+        {
+          selector: 'ExportDefaultDeclaration',
+          message: 'Prefer named exports',
+        },
+      ],
+      'no-shadow': 'error',
+      'no-this-before-super': 'error',
+      'no-throw-literal': 'error',
+      'no-unexpected-multiline': 'error',
+      'no-unneeded-ternary': 'error',
+      'no-unused-vars': 'off',
+      'no-use-before-define': 'error',
+      'no-var': 'error',
+      'no-with': 'error',
+      'object-shorthand': ['warn', 'always'],
+      'one-var': [
+        'error',
+        {
+          var: 'never',
+          let: 'never',
+          const: 'never',
+        },
+      ],
+      'prefer-const': ['error', { destructuring: 'all' }],
+      'prefer-promise-reject-errors': 'error',
+      'prefer-rest-params': 'error',
+      'prefer-spread': 'error',
+    },
+  },
+];
+
+const rulesFromUnicorn: ConfigWithExtendsArray = [
+  {
+    files,
+    languageOptions,
+    plugins: { unicorn },
+    rules: {
       'unicorn/expiring-todo-comments': [
         'warn',
         {
@@ -232,6 +219,24 @@ export const commonConfigs: ConfigWithExtendsArray = [
       'unicorn/prefer-logical-operator-over-ternary': 'warn',
       'unicorn/prefer-switch': 'warn',
       'unicorn/prefer-ternary': 'warn',
+    },
+  },
+];
+
+const rulesFromUnusedImports: ConfigWithExtendsArray = [
+  {
+    files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+        ...globals.builtin,
+      },
+    },
+    plugins: {
+      'unused-imports': unusedImports,
+    },
+    rules: {
       'unused-imports/no-unused-imports': 'error',
       'unused-imports/no-unused-vars': [
         'warn',
@@ -243,6 +248,114 @@ export const commonConfigs: ConfigWithExtendsArray = [
         },
       ],
     },
+  },
+];
+
+const rulesFromImportHelpers: ConfigWithExtendsArray = [
+  {
+    files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+        ...globals.builtin,
+      },
+    },
+    plugins: {
+      'import-helpers': importHelpers,
+      js,
+    },
+    rules: {
+      'import-helpers/order-imports': [
+        'warn',
+        {
+          newlinesBetween: 'always',
+          groups: [
+            '/^@[^/].*/',
+            '/^@\\/.*/',
+            'module',
+            ['parent', 'sibling', 'index'],
+          ],
+          alphabetize: {
+            order: 'asc',
+            ignoreCase: true,
+          },
+        },
+      ],
+    },
+  },
+];
+
+const rulesFromTypescript: ConfigWithExtendsArray = [
+  ...TSEslint.configs.recommended,
+  {
+    files,
+    languageOptions,
+    rules: {
+      '@typescript-eslint/consistent-type-definitions': ['warn', 'interface'],
+      '@typescript-eslint/explicit-function-return-type': 'warn',
+      '@typescript-eslint/explicit-module-boundary-types': 'warn',
+      '@typescript-eslint/naming-convention': [
+        'error',
+        {
+          selector: 'enum',
+          format: ['PascalCase'],
+        },
+      ],
+      '@typescript-eslint/no-explicit-any': 'warn',
+      '@typescript-eslint/no-namespace': 'off',
+    },
+  },
+];
+
+const rulesFromPrettier: ConfigWithExtendsArray = [
+  prettierRecommended,
+  {
+    files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+        ...globals.builtin,
+      },
+    },
+    rules: {
+      'prettier/prettier': [
+        'error',
+        {
+          tabWidth: 2,
+          arrowParens: 'always',
+          endOfLine: 'lf',
+          singleQuote: true,
+          trailingComma: 'es5',
+        },
+      ],
+    },
+  },
+];
+
+export const commonConfigs: ConfigWithExtendsArray = [
+  js.configs.recommended,
+  ...rulesBase,
+  ...rulesFromStylistic,
+  ...rulesFromUnicorn,
+  ...rulesFromUnusedImports,
+  ...rulesFromImportHelpers,
+  ...rulesFromTypescript,
+  ...rulesFromPrettier,
+  {
+    files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+        ...globals.builtin,
+        ...globals.browser,
+        ...globals.node,
+        ...globals.builtin,
+      },
+    },
+    plugins: { js },
   },
   {
     files: ['*.config.mjs', '*.config.mts'],

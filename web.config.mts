@@ -12,8 +12,6 @@ export const webConfigs: ConfigWithExtendsArray = [
       'import/prefer-default-export': 'off',
       'jsdoc/require-jsdoc': 'off',
       'new-cap': 'off',
-      'no-shadow': 'error',
-      'react/no-unknown-property': 'error',
     },
   },
 ];
