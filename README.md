@@ -1,6 +1,6 @@
-# Eslint Configuration
+# ESLint Configuration
 
-ESlint configuration recommended by Davi Gonçalves Valério.
+ESLint configuration recommended by Davi Gonçalves Valério.
 
 ## What's included? ✅
 
