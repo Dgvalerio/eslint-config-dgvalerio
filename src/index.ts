@@ -18,42 +18,17 @@ enum Scopes {
   next = 'next',
 }
 
-interface Meta {
-  name: string;
-  version: string;
-}
-
-const meta: Meta = { name, version };
-
-interface Config {
-  meta: Meta;
-  rules: ConfigWithExtendsArray;
+export = {
+  meta: { name, version },
   configs: {
-    recommended: {
-      meta: Meta;
-      rules: ConfigWithExtendsArray;
-    };
-  };
-}
-
-const getConfig = (rules: ConfigWithExtendsArray): Config => {
-  return {
-    meta,
-    rules,
-    configs: {
-      get recommended(): Config['configs']['recommended'] {
-        return { meta, rules };
-      },
+    get recommended(): Record<Scopes, ConfigWithExtendsArray> {
+      return {
+        [Scopes.common]: commonConfig,
+        [Scopes.nest]: nestConfig,
+        [Scopes.web]: webConfig,
+        [Scopes.react]: reactConfig,
+        [Scopes.next]: nextConfig,
+      };
     },
-  };
+  },
 };
-
-const configs: Record<Scopes, Config> = {
-  [Scopes.common]: getConfig(commonConfig),
-  [Scopes.nest]: getConfig(nestConfig),
-  [Scopes.web]: getConfig(webConfig),
-  [Scopes.react]: getConfig(reactConfig),
-  [Scopes.next]: getConfig(nextConfig),
-};
-
-export = configs;
