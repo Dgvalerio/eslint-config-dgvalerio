@@ -47,3 +47,6 @@ lerna-debug.log*
 !.vscode/extensions.json
 
 .history/
+
+# Build
+/lib

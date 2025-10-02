@@ -145,6 +145,7 @@ const rulesBase: ConfigWithExtendsArray = [
       camelcase: ['error', { properties: 'never' }],
       'constructor-super': 'error',
       'guard-for-in': 'error',
+      'import/prefer-default-export': 'off',
       'new-cap': 'error',
       'no-array-constructor': 'error',
       'no-caller': 'error',
@@ -155,9 +156,9 @@ const rulesBase: ConfigWithExtendsArray = [
       'no-invalid-this': 'error',
       'no-irregular-whitespace': 'error',
       'no-nested-ternary': 'error',
-      'no-object-constructor': 'error',
       'no-new-native-nonconstructor': 'error',
       'no-new-wrappers': 'error',
+      'no-object-constructor': 'error',
       'no-restricted-imports': ['error', { patterns: ['.*'] }],
       'no-restricted-syntax': [
         'error',
@@ -287,7 +288,36 @@ const rulesFromImportHelpers: ConfigWithExtendsArray = [
 ];
 
 const rulesFromTypescript: ConfigWithExtendsArray = [
-  ...TSEslint.configs.recommended,
+  // https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/src/configs/flat/recommended.ts
+  {
+    files,
+    languageOptions,
+    rules: {
+      '@typescript-eslint/ban-ts-comment': 'error',
+      'no-array-constructor': 'off',
+      '@typescript-eslint/no-array-constructor': 'error',
+      '@typescript-eslint/no-duplicate-enum-values': 'error',
+      '@typescript-eslint/no-empty-object-type': 'error',
+      '@typescript-eslint/no-explicit-any': 'error',
+      '@typescript-eslint/no-extra-non-null-assertion': 'error',
+      '@typescript-eslint/no-misused-new': 'error',
+      '@typescript-eslint/no-namespace': 'error',
+      '@typescript-eslint/no-non-null-asserted-optional-chain': 'error',
+      '@typescript-eslint/no-require-imports': 'error',
+      '@typescript-eslint/no-this-alias': 'error',
+      '@typescript-eslint/no-unnecessary-type-constraint': 'error',
+      '@typescript-eslint/no-unsafe-declaration-merging': 'error',
+      '@typescript-eslint/no-unsafe-function-type': 'error',
+      'no-unused-expressions': 'off',
+      '@typescript-eslint/no-unused-expressions': 'error',
+      'no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': 'error',
+      '@typescript-eslint/no-wrapper-object-types': 'error',
+      '@typescript-eslint/prefer-as-const': 'error',
+      '@typescript-eslint/prefer-namespace-keyword': 'error',
+      '@typescript-eslint/triple-slash-reference': 'error',
+    },
+  },
   {
     files,
     languageOptions,
@@ -336,13 +366,6 @@ const rulesFromPrettier: ConfigWithExtendsArray = [
 
 export const commonConfigs: ConfigWithExtendsArray = [
   js.configs.recommended,
-  ...rulesBase,
-  ...rulesFromStylistic,
-  ...rulesFromUnicorn,
-  ...rulesFromUnusedImports,
-  ...rulesFromImportHelpers,
-  ...rulesFromTypescript,
-  ...rulesFromPrettier,
   {
     files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
     languageOptions: {
@@ -357,6 +380,13 @@ export const commonConfigs: ConfigWithExtendsArray = [
     },
     plugins: { js },
   },
+  ...rulesBase,
+  ...rulesFromStylistic,
+  ...rulesFromUnicorn,
+  ...rulesFromUnusedImports,
+  ...rulesFromImportHelpers,
+  ...rulesFromTypescript,
+  ...rulesFromPrettier,
   {
     files: ['*.config.mjs', '*.config.mts'],
     rules: {
@@ -366,4 +396,7 @@ export const commonConfigs: ConfigWithExtendsArray = [
   },
 ];
 
-export default commonConfigs;
+export default [
+  ...TSEslint.configs.recommended,
+  ...commonConfigs,
+] as ConfigWithExtendsArray;

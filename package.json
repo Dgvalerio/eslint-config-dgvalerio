@@ -2,10 +2,17 @@
   "name": "@dgvalerio/eslint-config",
   "version": "2.0.0",
   "description": "ESlint configuration recommended by Dgvalerio.",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "default": "./lib/index.js"
+    }
+  },
   "scripts": {
     "publish": "npm publish --access public",
-    "release": "release-it"
+    "release": "release-it",
+    "tsc": "tsc"
   },
   "keywords": [
     "eslint",
@@ -35,6 +42,7 @@
     "@stylistic/eslint-plugin": "^5.4.0",
     "@types/eslint-plugin-jsx-a11y": "^6",
     "eslint": "^9.36.0",
+    "eslint-config-next": "^15.5.4",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-import-helpers": "^2.0.1",
     "eslint-plugin-jsx-a11y": "^6.10.2",
@@ -43,15 +51,21 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-unicorn": "^61.0.2",
     "eslint-plugin-unused-imports": "^4.2.0",
-    "globals": "^16.4.0",
-    "jiti": "^2.6.0",
     "prettier": "3.6.2",
     "prettier-plugin-tailwindcss": "^0.6.14",
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.44.1"
   },
   "devDependencies": {
+    "@types/node": "^24.6.1",
+    "globals": "^16.4.0",
+    "jiti": "^2.6.0",
+    "next": "^15.5.4",
     "release-it": "^19.0.5"
+  },
+  "peerDependencies": {
+    "eslint": ">=9.0.0",
+    "next": ">=15.0.0"
   },
   "packageManager": "yarn@4.10.3"
 }

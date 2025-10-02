@@ -3,12 +3,11 @@ import { ConfigWithExtendsArray } from '@eslint/config-helpers';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 
-import commonConfigs from './common.config.mjs';
+import commonConfig from './common.config.mjs';
 import { webConfigs } from './web.config.mjs';
 
 export const reactConfigs: ConfigWithExtendsArray = [
   react.configs.flat.recommended,
-  reactHooks.configs['recommended-latest'],
   {
     files: ['**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}'],
     plugins: { react },
@@ -40,4 +39,9 @@ export const reactConfigs: ConfigWithExtendsArray = [
   },
 ];
 
-export default [...commonConfigs, ...webConfigs, ...reactConfigs];
+export default [
+  ...commonConfig,
+  ...webConfigs,
+  ...reactConfigs,
+  { plugins: { 'react-hooks': reactHooks } },
+] as const as ConfigWithExtendsArray;
