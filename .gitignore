@@ -1,7 +1,7 @@
 .npmrc
 
 # For tests
-/src
+/tests
 eslint.config.mts
 
 # dependencies
